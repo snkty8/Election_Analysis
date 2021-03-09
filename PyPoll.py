@@ -73,7 +73,7 @@ with open(file_to_load) as election_data:
         #print(row)
 
     # Read the file object with the reader function.
-    file_reader = csv.reader(election_data)
+    #file_reader = csv.reader(election_data)
 
     # Print the header row.
     headers = next(file_reader)
@@ -105,7 +105,7 @@ with open(file_to_load) as election_data:
         candidate_votes[candidate_name] = candidate_votes[candidate_name] + 1
 
 # Print the candidate vote dictionary.
-print(candidate_votes)
+#print(candidate_votes)
 
 
 # Save the results to our text file.

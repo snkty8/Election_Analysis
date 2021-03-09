@@ -1,131 +1,149 @@
-#Module 3 Practice
+print("Hello World")
 
-# Creat a list
+
 counties = ["Arapahoe","Denver","Jefferson"]
-#print(counties) 
-
-# Add items to list using .append function
-counties.append("El Paso")
-#print(counties)
-
-# Add items to a specific place in list using .insert
-counties.insert(2, "El Paso")
-#print(counties)
-
-# Remove items from list using .remove
-counties.remove("El Paso")
-#print(counties)
-
-# Remove items from list using .pop (3 refers to 4th position)
-counties.pop(3)
-#print(counties)
-
-# Create dictionary
-counties_dict = {}
-counties_dict["Arapahoe"] = 422829
-counties_dict["Denver"] = 463353
-counties_dict["Jefferson"] = 432438
-#print(counties_dict)
-
-# Show the length of the countries dictionary
-#print(len(counties_dict))
-
-#Print all keys and values in the dictionary
-#print(counties_dict.items())
-
-#Print all keys in the dictionary
-#print(counties_dict.keys())
-
-# Print all values in the dictionary
-#print(counties_dict.values())
-
-# Get value from specific key
-#print(counties_dict.get("Denver"))
-
-# Lists of Dictionaries
-voting_data = []
-voting_data.append({"county":"Arapahoe", "registered_voters": 422829})
-voting_data.append({"county":"Denver", "registered_voters": 463353})
-voting_data.append({"county":"Jefferson", "registered_voters": 432438})
-#print(voting_data)
-
-# If. Elif, and Else Statement (Do not have the indent like the nested loops) 
-#Fav_Number = int(input("Guess my favorite number :)"))
-
-#if Fav_Number == 7:
-#   print("You got it!")
-
-#elif Fav_Number == 8:
-#   print("So close, but too high")
-
-#elif Fav_Number == 6:
-#   print("Close, but too low")
-
-#else:
-#   print("Too bad, so sad!!")
-
-# Nest If Else statements
-#Grade = int(input("What is your grade?"))
-#if Grade >= 90:
-#    print("You get an A")
-#else:   
-#    if Grade >=80:
-#        print("You get a B") 
-#    else:
-#        if Grade >= 70:
-#            print("You get a C")
-#        else:
-#            if Grade >=60:
-#                print("You get a D") 
-#            else:
-#                print("You Fail")  
+if counties[1] == 'Denver':
+    print(counties[1])
 
 
-# Skill Drill: Use str to print out valules associated with numbers
-#for county, voters in counties_dict.items():
-#    print(str(county) + " county has ", str(voters) + " registered voters")
+temperature = int(input("What is the temperature outside? "))
+if temperature > 80:
+    print("Turn on the AC.")
+else:
+    print("Open the windows.")
 
-# Use F Strings to do the same as above
-#for county, voters in counties_dict.items():
-#    print(f"{county} county has {voters} registered voters.")
 
-# The use of multiple F Strings and precision factor
-#candidate_votes = int(input("How many votes did the candidate get in the election? "))
-#total_votes = int(input("What is the total number of votes in the election? "))
-#message_to_candidate = (
-#    f"You received {candidate_votes:,} number of votes. "
-#    f"The total number of votes in the election was {total_votes:,}. "
-#    f"You received {candidate_votes / total_votes * 100:.2f}% of the total votes.")
-#print(message_to_candidate)
+    counties = ["Arapahoe","Denver","Jefferson"]
+if "El Paso" in counties:
+    print("El Paso is in the list of counties.")
+else:
+    print("El Paso is not the list of counties.")
 
-# print the number of voters in each county.  The :, after votes adds the comma
-#for county, voters in counties_dict.items():
-#    print(f"{county} county has {voters:,} registered voters.")
+
+#Example of While Loops
+x = 0
+while x <= 5:
+    print(x)
+    x = x + 1
+
+# This will not print, and changing to greater turns it into an infinite loop
+    count = 7
+
+while count < 1:
+
+    print("Hello World")
+
+for i in range(len(counties)):
+    print(counties[i])  
+
+
+# Get Each Dictionary in a List of Dictionaries
+voting_data = [{"county":"Arapahoe", "registered_voters": 422829},
+                {"county":"Denver", "registered_voters": 463353},
+                {"county":"Jefferson", "registered_voters": 432438}]
+
+for county_dict in voting_data:
+    print(county_dict)
+
+#Nested For loop
+for county_dict in voting_data:
+    for value in county_dict.values():
+        print(value)
+
+
+#Using F String with Dictionaries
+
+# No F String 
+counties_dict = {"Arapahoe": 369237, "Denver":413229, "Jefferson": 390222}
+for county, voters in counties_dict.items():
+    print(county + " county has " + str(voters) + " registered voters.")
+
+# Using F String 
+for county, voters in counties_dict.items():
+    print(f"{county} county has {voters} registered voters.")
+
+# F strings in Multiple lines
+candidate_votes = int(input("How many votes did the candidate get in the election? "))
+total_votes = int(input("What is the total number of votes in the election? "))
+message_to_candidate = (
+    f"You received {candidate_votes:,} number of votes. "
+    f"The total number of votes in the election was {total_votes:,}. "
+    f"You received {candidate_votes / total_votes * 100:.2f}% of the total votes.")
+
+
+# Import the datetime class from the datetime module.
+import datetime
+# Use the now() attribute on the datetime class to get the present time.
+now = datetime.datetime.now()
+# Print the present time.
+print("The time right now is ", now)
+
+# Import the datetime class from the datetime module.
+import datetime as dt
+# Use the now() attribute on the datetime class to get the present time.
+now = dt.datetime.now()
+# Print the present time.
+print("The time right now is ", now)
 
 
 
-#Read CSV File
-# First we'll import the os module
-# This will allow us to create file paths across operating systems
-import os
-# Module for reading CSV files
+
+# Add our dependencies.
 import csv
+import os
+# Assign a variable to load a file from a path.
+file_to_load = os.path.join("Resources", "election_results.csv")
+# Assign a variable to save the file to a path.
+file_to_save = os.path.join("analysis", "election_analysis.txt")
+# Initialize a total vote counter.
+total_votes = 0
+# Candidate options and candidate votes
+candidate_options = []
+candidate_votes = {}
+# Track the winning candidate, vote count, and percentage.
+winning_candidate = ""
+winning_count = 0
+winning_percentage = 0
+# Open the election results and read the file.
+with open(file_to_load) as election_data:
+    file_reader = csv.reader(election_data)
+    # Read the header row.
+    headers = next(file_reader)
+    # Print each row in the CSV file.
+    for row in file_reader:
+        # Add to the total vote count.
+        total_votes += 1
+        # Get the candidate name from each row.
+        candidate_name = row[2]
+        # If the candidate does not match any existing candidate add it the
+        # the candidate list.
+        if candidate_name not in candidate_options:
+            # Add the candidate name to the candidate list.
+            candidate_options.append(candidate_name)
+            # And begin tracking that candidate's voter count.
+            candidate_votes[candidate_name] = 0
+        # Add a vote to that candidate's count
+        candidate_votes[candidate_name] += 1
 
-csvpath = os.path.join('..', 'Resources', 'election_data.csv')
-# Method 2: Improved Reading using CSV module
-with open(csvpath) as csvfile:
+for candidate_name in candidate_votes:
+    # Retrieve vote count and percentage.
+    votes = candidate_votes[candidate_name]
+    vote_percentage = float(votes) / float(total_votes) * 100
+    # Print each candidate, their voter count, and percentage to the
+    # terminal.
+    print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
 
-    # CSV reader specifies delimiter and variable that holds contents
-    csvreader = csv.reader(csvfile, delimiter=',')
+    # Determine winning vote count, winning percentage, and candidate.
+    if (votes > winning_count) and (vote_percentage > winning_percentage):
+        winning_count = votes
+        winning_candidate = candidate_name
+        winning_percentage = vote_percentage
+# Print the winning candidates' results to the terminal.
+winning_candidate_summary = (
+    f"-------------------------\n"
+    f"Winner: {winning_candidate}\n"
+    f"Winning Vote Count: {winning_count:,}\n"
+    f"Winning Percentage: {winning_percentage:.1f}%\n"
+    f"-------------------------\n")
 
-    print(csvreader)
-
-    # Read the header row first (skip this step if there is now header)
-    #csv_header = next(csvreader)
-    #print(f"CSV Header: {csv_header}")
-
-    # Read each row of data after the header
-    #for row in csvreader:
-    #    print(row)
-
-
+print(winning_candidate_summary)
