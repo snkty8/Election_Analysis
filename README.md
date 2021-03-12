@@ -21,19 +21,19 @@ The analysis of the election show that:
 Charles Casper Stockham
 Diana DeGette
 Raymon Anthony Doane
-- The canidate results were:
+- The candidate results were:
 Charles Casper Stockham: 23.0% (85,213)
 Diana DeGette: 73.8% (272,892)
 Raymon Anthony Doane: 3.1% (11,606)
 - The winner if the election was:
-    - Canidate Diana DeGette, who received 73.8%, and 272,892 number of votes.
+    - Candidate Diana DeGette, who received 73.8%, and 272,892 number of votes.
 
 ## Challenge Overview
 
 An additional data is needed for the election audit.  The election commission has requested a complete audit for:
-- The voter turnout for each county
-- The percentage of votes from each county out of the total count 
-- The county with the largest turnout
+1. The voter turnout for each county
+2. The percentage of votes from each county out of the total count 
+3. The county with the largest turnout
 
 
 ## Election Audit Results
@@ -60,3 +60,4 @@ An additional data is needed for the election audit.  The election commission ha
 
 ## Election Audit Summary 
 
+This particular code works well for this election, but with a few modifications it can also work for other elections. Variable names, dictionary keys, and lists can be changed.  For example, the presidental election.  We could change county to state in order to see what states has the highest turnout.  To make the total percentage of voters more accurate, we could use the total amount of the of age population for each state.  Another example would be high school student class president elections.  Where instead of canidate in the case, we could use the variable student. 
