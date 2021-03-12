@@ -29,7 +29,6 @@ winning_percentage = 0
 
 # 2: Track the largest county and county voter turnout.
 largest_turnout_county = ''
-#winning_county_votes = 0 
 
 # Open the election results and read the file.
 with open(file_to_load) as election_data:
@@ -119,8 +118,6 @@ with open(file_to_save, "w") as txt_file:
     winning_county_summary = (
         f"-------------------------\n"
         f"Largest County Turnout: {largest_turnout_county}\n"
-        #f"Winning Vote Count: {winning_count:,}\n"
-        #f"Winning Percentage: {winning_percentage:.1f}%\n"
         f"-------------------------\n")
     print(winning_county_summary)
 
